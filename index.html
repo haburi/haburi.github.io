@@ -4,139 +4,150 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>哈布日影视工作室 · 主理人</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
-      background: #000;
-      color: #f5f5f7;
+      background: #ffffff;
+      color: #111111;
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
+      line-height: 1.65;
     }
 
-    /* 电影感背景 - 可替换为你自己的电影画面或纯黑渐变 */
-    .background {
+    /* 顶部导航 */
+    .nav {
       position: fixed;
-      inset: 0;
-      background: 
-        linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 60%, #000 100%),
-        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=70&w=2000') center/cover no-repeat;
-      filter: brightness(0.45) contrast(1.15);
-      z-index: -2;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* 可选：轻微胶片颗粒感（可删除） */
-    .grain {
-      position: fixed;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=10&w=20');
-      background-size: 200px;
-      opacity: 0.07;
-      pointer-events: none;
-      z-index: -1;
-      mix-blend-mode: overlay;
+    .nav-list {
+      display: flex;
+      gap: 48px;
+      list-style: none;
+    }
+
+    .nav-item a {
+      color: #111;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    .nav-item a:hover {
+      color: #444;
     }
 
     .container {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 5vw 8vw;
-      text-align: center;
+      padding-top: 140px;
+      padding-bottom: 120px;
+      max-width: 740px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3.2rem, 8vw, 9.5rem);
+      font-size: 4.8rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 0.15em;
-      background: linear-gradient(90deg, #f5f5f7 30%, #e0e0e5 70%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.4rem;
+      text-align: center;
     }
 
     .subtitle {
-      font-size: clamp(1.35rem, 3.5vw, 2.1rem);
+      font-size: 1.38rem;
       font-weight: 400;
-      color: #c9c9ce;
-      margin-bottom: 3.5rem;
-      letter-spacing: 0.03em;
+      color: #444;
+      text-align: center;
+      margin-bottom: 4.5rem;
+      letter-spacing: 0.4px;
     }
 
     .content {
-      max-width: 720px;
-      font-size: clamp(1.05rem, 2.2vw, 1.28rem);
-      color: #d1d1d6;
-      opacity: 0.92;
-      margin-bottom: 4rem;
+      font-size: 1.05rem;
+      color: #222;
     }
 
     .content p {
-      margin-bottom: 1.8em;
+      margin-bottom: 1.9em;
     }
 
     .highlight {
-      color: #f5f5f7;
+      color: #000;
       font-weight: 500;
     }
 
     .slogan {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+      font-size: 2.1rem;
       font-weight: 400;
       font-style: italic;
-      color: #a0a0a8;
-      margin-top: 2rem;
-      letter-spacing: 0.04em;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1.4s forwards;
-    }
-
-    .fade-in:nth-child(1) { animation-delay: 0.3s; }
-    .fade-in:nth-child(2) { animation-delay: 0.6s; }
-    .fade-in:nth-child(3) { animation-delay: 0.9s; }
-    .fade-in:nth-child(4) { animation-delay: 1.2s; }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      color: #333;
+      text-align: center;
+      margin-top: 5rem;
+      line-height: 1.4;
     }
 
     @media (max-width: 768px) {
-      .container {
-        padding: 10vh 6vw;
+      h1 {
+        font-size: 3.6rem;
+      }
+      .subtitle {
+        font-size: 1.18rem;
+      }
+      .content {
+        font-size: 1rem;
+      }
+      .nav-list {
+        gap: 32px;
+      }
+      .nav-item a {
+        font-size: 13px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="background"></div>
-  <div class="grain"></div>
+  <!-- 顶部导航（5个目录位置，可自行修改链接和名称） -->
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item"><a href="#about">关于主理人</a></li>
+      <li class="nav-item"><a href="#works">代表作品</a></li>
+      <li class="nav-item"><a href="#services">服务范围</a></li>
+      <li class="nav-item"><a href="#clients">合作客户</a></li>
+      <li class="nav-item"><a href="#contact">联系方式</a></li>
+    </ul>
+  </nav>
 
   <div class="container">
-    <h1 class="fade-in">哈布日</h1>
-    <div class="subtitle fade-in">影视工作室 · 主理人</div>
+    <h1>哈布日</h1>
+    <div class="subtitle">影视工作室 · 主理人</div>
 
-    <div class="content fade-in">
+    <div class="content" id="about">
       <p>深耕电影摄影领域十余载，我曾以电影摄影师的身份，穿梭于大银幕长片、小众独立电影与多元微电影的片场。</p>
       
       <p>从<strong class="highlight">光影构图</strong>到<strong class="highlight">叙事镜头</strong>，从现场调度到细节捕捉，上千个拍摄日夜的打磨，让我对“用镜头讲故事”有着刻入骨髓的专业执念。</p>
@@ -146,7 +157,7 @@
       <p>无论是大制作的镜头语言设计，还是小而美的情感瞬间捕捉，哈布日影视工作室始终以<strong>“电影级质感”</strong>为核心，为每一位客户量身打造兼具艺术深度与传播力的影像作品。</p>
     </div>
 
-    <div class="slogan fade-in">
+    <div class="slogan">
       光影为媒，故事为魂<br>
       哈布日影视，期待与您共筑影像之梦
     </div>
