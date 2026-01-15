@@ -1,80 +1,156 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>摄影师个人主页</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff;
-            color: #333333;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid #eeeeee;
-        }
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 10px;
-            color: #222222;
-        }
-        .tagline {
-            font-size: 1.2rem;
-            color: #666666;
-            font-style: italic;
-        }
-        .intro {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            text-align: justify;
-        }
-        .intro p {
-            margin-bottom: 20px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #eeeeee;
-            color: #666666;
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>哈布日影视工作室 · 主理人</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: #000;
+      color: #f5f5f7;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* 电影感背景 - 可替换为你自己的电影画面或纯黑渐变 */
+    .background {
+      position: fixed;
+      inset: 0;
+      background: 
+        linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 60%, #000 100%),
+        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=70&w=2000') center/cover no-repeat;
+      filter: brightness(0.45) contrast(1.15);
+      z-index: -2;
+    }
+
+    /* 可选：轻微胶片颗粒感（可删除） */
+    .grain {
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=10&w=20');
+      background-size: 200px;
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: -1;
+      mix-blend-mode: overlay;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5vw 8vw;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 8vw, 9.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.15em;
+      background: linear-gradient(90deg, #f5f5f7 30%, #e0e0e5 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: clamp(1.35rem, 3.5vw, 2.1rem);
+      font-weight: 400;
+      color: #c9c9ce;
+      margin-bottom: 3.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    .content {
+      max-width: 720px;
+      font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+      color: #d1d1d6;
+      opacity: 0.92;
+      margin-bottom: 4rem;
+    }
+
+    .content p {
+      margin-bottom: 1.8em;
+    }
+
+    .highlight {
+      color: #f5f5f7;
+      font-weight: 500;
+    }
+
+    .slogan {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+      font-weight: 400;
+      font-style: italic;
+      color: #a0a0a8;
+      margin-top: 2rem;
+      letter-spacing: 0.04em;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.4s forwards;
+    }
+
+    .fade-in:nth-child(1) { animation-delay: 0.3s; }
+    .fade-in:nth-child(2) { animation-delay: 0.6s; }
+    .fade-in:nth-child(3) { animation-delay: 0.9s; }
+    .fade-in:nth-child(4) { animation-delay: 1.2s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 10vh 6vw;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>哈布日影视工作室</h1>
-            <p class="tagline">用镜头捕捉时光，用影像讲述故事</p>
-        </header>
-        
-        <section class="intro">
-            <p>您好，我是一名拥有十余年行业经验的专业摄影师，曾在电影摄影领域深耕多年，参与过多部影视作品的拍摄创作。这段经历让我对光影艺术有着深刻的理解和独特的视角。</p>
-            
-            <p>目前，我经营着自己的摄影工作室，业务范围涵盖电影、微电影、宣传片等多个领域。我始终坚信，每一个镜头都应该有温度，每一幅画面都应该有灵魂。无论是宏大的电影场景，还是细腻的宣传片镜头，我都致力于用专业的技术和艺术的眼光，为客户创造出具有感染力和视觉冲击力的作品。</p>
-            
-            <p>在我的职业生涯中，我不断探索和创新，将电影级的拍摄手法和叙事技巧融入到各类项目中，为客户提供高品质、个性化的摄影解决方案。我期待用我的镜头，为您的故事增添光彩。</p>
-        </section>
-        
-        <footer>
-            <p>© 2026 摄影师个人工作室 | 保留所有权利</p>
-        </footer>
+
+  <div class="background"></div>
+  <div class="grain"></div>
+
+  <div class="container">
+    <h1 class="fade-in">哈布日</h1>
+    <div class="subtitle fade-in">影视工作室 · 主理人</div>
+
+    <div class="content fade-in">
+      <p>深耕电影摄影领域十余载，我曾以电影摄影师的身份，穿梭于大银幕长片、小众独立电影与多元微电影的片场。</p>
+      
+      <p>从<strong class="highlight">光影构图</strong>到<strong class="highlight">叙事镜头</strong>，从现场调度到细节捕捉，上千个拍摄日夜的打磨，让我对“用镜头讲故事”有着刻入骨髓的专业执念。</p>
+      
+      <p>如今，我创立<strong>哈布日影视工作室</strong>，将院线级的拍摄标准与创作经验，融入更广阔的影像领域。我们承接长片电影、短片、微电影、MV、婚礼纪实、品牌广告、企业宣传片等全品类影像业务。</p>
+      
+      <p>无论是大制作的镜头语言设计，还是小而美的情感瞬间捕捉，哈布日影视工作室始终以<strong>“电影级质感”</strong>为核心，为每一位客户量身打造兼具艺术深度与传播力的影像作品。</p>
     </div>
+
+    <div class="slogan fade-in">
+      光影为媒，故事为魂<br>
+      哈布日影视，期待与您共筑影像之梦
+    </div>
+  </div>
+
 </body>
 </html>
