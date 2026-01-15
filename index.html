@@ -3,114 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>光影叙事 - 我的摄影工作室</title>
+    <title>摄影师个人主页</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            background-color: #0a0a0a;
-            color: #e0e0e0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
             line-height: 1.6;
-            padding: 2rem;
-            position: relative;
         }
-
-        /* 纯CSS颗粒效果 */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(#444 1px, transparent 1px),
-                radial-gradient(#444 1px, transparent 1px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: -1;
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background-color: rgba(15, 15, 15, 0.7);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 40px 20px;
         }
-
         header {
             text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eeeeee;
         }
-
         h1 {
-            color: #ffd700;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-            position: relative;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            color: #222222;
         }
-
-        h1::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ffd700, transparent);
-        }
-
-        .subtitle {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            color: #ccc;
+        .tagline {
+            font-size: 1.2rem;
+            color: #666666;
             font-style: italic;
+        }
+        .intro {
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        .intro {
-            margin-bottom: 3rem;
             font-size: 1.1rem;
+            text-align: justify;
         }
-
         .intro p {
-            margin-bottom: 1.5rem;
-            text-indent: 2rem;
+            margin-bottom: 20px;
         }
-
-        .services {
-            margin-top: 3rem;
-        }
-
-        .services h2 {
-            color: #ffd700;
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            margin-bottom: 2rem;
+        footer {
             text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #eeeeee;
+            color: #666666;
+            font-size: 0.9rem;
         }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .service-item {
-            background-color: rgba(30, 30, 30, 0.5);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 215, 0,
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>哈布日影视工作室</h1>
+            <p class="tagline">用镜头捕捉时光，用影像讲述故事</p>
+        </header>
+        
+        <section class="intro">
+            <p>您好，我是一名拥有十余年行业经验的专业摄影师，曾在电影摄影领域深耕多年，参与过多部影视作品的拍摄创作。这段经历让我对光影艺术有着深刻的理解和独特的视角。</p>
+            
+            <p>目前，我经营着自己的摄影工作室，业务范围涵盖电影、微电影、宣传片等多个领域。我始终坚信，每一个镜头都应该有温度，每一幅画面都应该有灵魂。无论是宏大的电影场景，还是细腻的宣传片镜头，我都致力于用专业的技术和艺术的眼光，为客户创造出具有感染力和视觉冲击力的作品。</p>
+            
+            <p>在我的职业生涯中，我不断探索和创新，将电影级的拍摄手法和叙事技巧融入到各类项目中，为客户提供高品质、个性化的摄影解决方案。我期待用我的镜头，为您的故事增添光彩。</p>
+        </section>
+        
+        <footer>
+            <p>© 2026 摄影师个人工作室 | 保留所有权利</p>
+        </footer>
+    </div>
+</body>
+</html>
