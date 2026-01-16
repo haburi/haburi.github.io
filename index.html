@@ -1,315 +1,412 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>哈布日影视工作室</title>
-<style>
-* {
-边距：0；
-内边距：0；
-box-sizing: border-box;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈布日影视工作室 | HAVAR STUDIO</title>
+    <style>
+        /* ===== 全局基础样式 ===== */
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #1d1d1f; /* 苹果官网标准黑色 */
+            --text-secondary: #86868b; /* 苹果官网标准灰色 */
+            --accent-color: #0071e3; /* 苹果经典蓝色 */
+            --card-bg: #f5f5f7;
+            --nav-bg: rgba(255, 255, 255, 0.7);
+        }
 
-html {
-滚动行为：平滑；
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased; /* 文字平滑 */
+        }
 
-身体 {
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-Helvetica、Arial、sans-serif；
-背景色：#ffffff；
-颜色：#333；
-行高：1.8；
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-a {
-文本装饰：无；
-颜色：继承；
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
 
-部分 {
-内边距：120px 8%；
-}
+        /* ===== 导航栏 ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 44px; /* 苹果标准导航高度 */
+            background: var(--nav-bg);
+            backdrop-filter: saturate(180%) blur(20px); /* 毛玻璃效果 */
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            z-index: 9999;
+        }
 
-h1, h2 {
-字体粗细：600；
-字母间距：1px；
-颜色：#111；
-}
+        .nav-container {
+            max-width: 1024px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 22px;
+        }
 
-h2 {
-字体大小：32像素；
-margin-bottom: 40px;
-文本对齐方式：居中；
-}
+        .logo {
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            cursor: pointer;
+        }
 
-p {
-字体大小：16px；
-颜色：#555；
-}
+        /* 桌面端导航 */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
 
-/* ===== 顶部导航 ===== */
-头部{
-位置：固定；
-顶部：0；
-左侧：0；
-宽度：100%；
-背景色：rgba(255,255,255,0.96);
-border-bottom: 1px solid #eee;
-z-index：1000；
-}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 12px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            font-weight: 400;
+        }
 
-.nav-container {
-最大宽度：1200像素；
-margin: 0 auto;
-内边距：16px 8%；
-显示方式：flex；
-justify-content: 空格;
-align-items: center;
-}
+        .nav-links a:hover {
+            opacity: 1;
+        }
 
-.logo-text {
-字体大小：16px；
-字体粗细：600；
-字母间距：2px；
-}
+        /* 隐藏复选框（用于控制移动端菜单） */
+        #menu-toggle {
+            display: none;
+        }
 
-船
-列表样式：无；
-显示方式：flex；
-间隙：32像素；
-字体大小：14px；
-颜色：#444；
-}
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 10px;
+        }
 
-导航 a:hover {
-颜色：#000；
-}
+        .menu-icon span {
+            width: 18px;
+            height: 1.5px;
+            background: var(--text-main);
+            transition: 0.3s;
+        }
 
-/* ===== 汉堡菜单（纯 CSS） ===== */
-#菜单切换 {
-显示：无；
-}
+        /* ===== 通用板块样式 ===== */
+        section {
+            padding: 120px 22px;
+            max-width: 1024px;
+            margin: 0 auto;
+        }
 
-.menu-icon {
-显示：无；
-弯曲方向：柱；
-间隙：6像素；
-光标：指针；
-}
+        .section-title {
+            font-size: 40px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 40px;
+            text-align: center;
+        }
 
-.menu-icon span {
-宽度：24像素；
-高度：2像素；
-背景色：#333；
-}
+        /* ===== 首页板块 ===== */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 44px;
+        }
 
-/* ===== 首页 ===== */
-＃家 {
-高度：100vh；
-显示方式：flex；
-align-items: center;
-justify-content: center;
-文本对齐方式：居中；
-}
+        #home h1 {
+            font-size: 56px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-bottom: 10px;
+        }
 
-.home-inner {
-显示方式：flex；
-弯曲方向：柱；
-align-items: center;
-间隙：32像素；
-}
+        #home p {
+            font-size: 24px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
 
-/* 首页 Logo */
-.home-logo img {
-height: 140px; /* 桌面端大小 */
-宽度：自动；
-}
+        /* ===== 关于我板块 ===== */
+        #about {
+            background-color: var(--bg-color);
+        }
 
-#首页 h1 {
-字体大小：48像素；
-}
+        .about-content {
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 19px;
+            line-height: 1.6;
+            color: var(--text-main);
+            text-align: justify;
+        }
 
-#首页 p {
-字体大小：18px；
-颜色：#666；
-}
+        /* ===== 作品展示板块 ===== */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
 
-/* ===== 关于我 ===== */
-.about-content {
-最大宽度：800像素；
-margin: 0 auto;
-文本对齐方式：居中；
-}
+        .work-card {
+            background-color: var(--card-bg);
+            aspect-ratio: 16 / 9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
 
-/* ===== 作品展示 ===== */
-.works-grid {
-显示方式：网格；
-grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-间隙：24像素；
-}
+        .work-card:hover {
+            transform: scale(1.02);
+        }
 
-.work-item {
-背景：#f2f2f2；
-高度：180像素；
-显示方式：flex；
-align-items: center;
-justify-content: center;
-字体大小：14px；
-颜色：#666；
-}
+        .work-name {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
 
-/* ===== 服务范围 ===== */
-.services {
-最大宽度：600像素；
-margin: 0 auto;
-}
+        .work-type {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
 
-.services ul {
-列表样式：无；
-}
+        /* ===== 服务范围板块 ===== */
+        .services-list {
+            max-width: 500px;
+            margin: 0 auto;
+            list-style: none;
+        }
 
-.services li {
-margin-bottom: 16px;
-}
+        .services-list li {
+            font-size: 21px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f2f2f2;
+            display: flex;
+            align-items: center;
+        }
 
-/* ===== 联系方式 ===== */
-。接触 {
-最大宽度：600像素；
-margin: 0 auto;
-文本对齐方式：居中；
-}
+        .services-list li::before {
+            content: "✓";
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-weight: bold;
+        }
 
-.联系 p {
-margin-bottom: 12px;
-}
+        /* ===== 联系方式板块 ===== */
+        .contact-info {
+            text-align: center;
+            font-size: 21px;
+            color: var(--text-main);
+        }
 
-/* ===== 页脚 ===== */
-页脚 {
-padding: 40px 0;
-文本对齐方式：居中；
-字体大小：14px；
-颜色：#888；
-border-top: 1px solid #eee;
-}
+        .contact-item {
+            margin-bottom: 15px;
+        }
 
-/* ===== 响应式 ===== */
-@media (max-width: 768px) {
+        .contact-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
 
-船
-位置：绝对定位；
-顶部：60px；
-右：0；
-宽度：100%；
-背景色：#fff；
-弯曲方向：柱；
-align-items: center;
-间隙：24像素；
-padding: 40px 0;
-显示：无；
-border-bottom: 1px solid #eee;
-}
+        /* ===== 页脚 ===== */
+        footer {
+            padding: 60px 22px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 12px;
+            border-top: 1px solid #f2f2f2;
+        }
 
-#menu-toggle:checked + label + nav ul {
-显示方式：flex；
-}
+        /* ===== 移动端响应式适配 ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 44px;
+                left: 0;
+                width: 100%;
+                height: 0;
+                flex-direction: column;
+                background: var(--bg-color);
+                gap: 0;
+                overflow: hidden;
+                transition: height 0.3s ease;
+                padding: 0;
+            }
 
-.menu-icon {
-显示方式：flex；
-}
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid #f2f2f2;
+            }
 
-.home-logo img {
-height: 100px; /* 手机端缩小 */
-}
+            .nav-links a {
+                display: block;
+                padding: 20px 40px;
+                font-size: 17px;
+                opacity: 1;
+            }
 
-#首页 h1 {
-字体大小：36px；
-}
-}
-</style>
+            .menu-icon {
+                display: flex;
+            }
+
+            /* 展开菜单 */
+            #menu-toggle:checked ~ .nav-links {
+                height: calc(100vh - 44px);
+            }
+
+            /* 汉堡图标动画 */
+            #menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+                transform: translateY(5.5px) rotate(45deg);
+            }
+            #menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+                transform: translateY(-5.5px) rotate(-45deg);
+            }
+
+            #home h1 { font-size: 40px; }
+            #home p { font-size: 18px; }
+            .section-title { font-size: 32px; }
+            .about-content { font-size: 17px; }
+        }
+    </style>
 </head>
 <body>
-<header>
-<div class="nav-container">
-<div class="logo-text">哈布日影视</div>
-code
-代码
-<input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">
-        <span></span><span></span><span></span>
-    </label>
 
-    <nav>
-        <ul>
-            <li><a href="#home">首页</a></li>
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#works">作品展示</a></li>
-            <li><a href="#services">服务范围</a></li>
-            <li><a href="#contact">联系方式</a></li>
+    <!-- 顶部导航 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo" onclick="window.scrollTo(0,0)">哈布日影视</div>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="#home" onclick="document.getElementById('menu-toggle').checked=false">首页</a></li>
+                <li><a href="#about" onclick="document.getElementById('menu-toggle').checked=false">关于我</a></li>
+                <li><a href="#works" onclick="document.getElementById('menu-toggle').checked=false">作品展示</a></li>
+                <li><a href="#services" onclick="document.getElementById('menu-toggle').checked=false">服务范围</a></li>
+                <li><a href="#contact" onclick="document.getElementById('menu-toggle').checked=false">联系方式</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 首页板块 -->
+    <section id="home">
+        <h1>哈布日影视工作室</h1>
+        <p>用镜头捕捉光影，用影像讲述故事</p>
+    </section>
+
+    <!-- 关于我板块 -->
+    <section id="about">
+        <h2 class="section-title">关于主理人</h2>
+        <div class="about-content">
+            深耕电影摄影领域十余载，我曾以电影摄影师的身份，穿梭于大银幕长片、小众独立电影与多元微电影的片场。从光影构图到叙事镜头，从现场调度到细节捕捉，上千个拍摄日夜的打磨，让我对“用镜头讲故事”有着刻入骨髓的专业执念。如今，我创立哈布日影视工作室，将院线级的拍摄标准与创作经验，融入更广阔的影像领域。
+        </div>
+    </section>
+
+    <!-- 作品展示板块 -->
+    <section id="works">
+        <h2 class="section-title">作品精选</h2>
+        <div class="works-grid">
+            <!-- 作品 1 -->
+            <div class="work-card">
+                <div class="work-name">《阿苏的夏天》</div>
+                <div class="work-type">长片电影</div>
+            </div>
+            <!-- 作品 2 -->
+            <div class="work-card">
+                <div class="work-name">《心灵博物馆》</div>
+                <div class="work-type">独立电影</div>
+            </div>
+            <!-- 作品 3 -->
+            <div class="work-card">
+                <div class="work-name">《城市流光》</div>
+                <div class="work-type">品牌广告</div>
+            </div>
+            <!-- 作品 4 -->
+            <div class="work-card">
+                <div class="work-name">《草原往事》</div>
+                <div class="work-type">微电影</div>
+            </div>
+            <!-- 作品 5 -->
+            <div class="work-card">
+                <div class="work-name">《永恒时刻》</div>
+                <div class="work-type">婚礼宣传片</div>
+            </div>
+            <!-- 作品 6 -->
+            <div class="work-card">
+                <div class="work-name">《科技之巅》</div>
+                <div class="work-type">企业宣传片</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务范围板块 -->
+    <section id="services">
+        <h2 class="section-title">服务内容</h2>
+        <ul className="services-list">
+            <li>长片电影拍摄</li>
+            <li>短片/微电影创作</li>
+            <li>MV 拍摄与制作</li>
+            <li>婚礼纪实/婚礼宣传片</li>
+            <li>品牌广告拍摄</li>
+            <li>企业宣传片定制</li>
         </ul>
-    </nav>
-</div>
-</header>
-<section id="home">
-<div class="home-inner">
-<!-- 这里是你的 Logo --><a href="https://ibb.co/7dgCTMmj"><img src="https://i.ibb.co/7dgCTMmj/converted-image.png" alt="转换后的图像" border="0"></a>
-<div class="home-logo">
-code
-代码
-</div>
+    </section>
 
-    <h1>哈布日影视工作室</h1>
-    <p>用镜头捕捉光影，用影像讲述故事</p>
-</div>
-</section>
-<section id="about">
-<h2>关于主理人</h2>
-<div class="about-content">
-<p>
-深耕电影摄影领域十余载，我曾以电影摄影师的身份，穿梭于大银幕长片、
-小众独立电影与多元微电影的片场。
-从光影构图到叙事镜头，从现场调度到细节捕捉，
-上千个拍摄日夜的打磨，让我对“用镜头讲故事”
-有着刻入骨髓的专业执念。
-如今，我创立哈布日影视工作室，
-将院线级的拍摄标准与创作经验，
-融入更广阔的影像领域。
-</p>
-</div>
-</section>
-<section id="works">
-<h2>作品精选</h2>
-<div class="works-grid">
-<div class="work-item">《阿苏的夏天》- 长片</div><a href="https://ibb.co/spcr7dMy"><img src="https://i.ibb.co/spcr7dMy/85ca59e71ce9a228c1300338d9399444.jpg" alt="85ca59e71ce9a228c1300338d9399444" border="0"></a>
-<div class="work-item">独立电影《心灵博物馆》</div> <a href="https://ibb.co/NdtS3Zb3"><img src="https://i.ibb.co/NdtS3Zb3/IMG-8368.jpg" alt="IMG-8368" border="0"></a>
-code
-代码
-</section>
-<section id="services">
-<h2>服务内容</h2>
-<div class="services">
-<ul>
-<li>✅ 长片电影拍摄</li>
-<li>✅ 短片 / 微电影创作</li>
-<li>✅ MV 拍摄与制作</li>
-<li>✅ 婚礼纪实 / 婚礼宣传片</li>
-<li>✅ 品牌广告拍摄</li>
-<li>✅ 企业宣传片定制</li>
-</ul>
-</div>
-</section>
-<section id="contact">
-<h2>联系我们</h2>
-<div class="contact">
-<p>📞 电话：15661013682</p>
-<p>💬 微信：244321240</p>
-<p>📧 邮箱：haburihaha@gmail.com</p>
-<p>📍 地址：内蒙古 赤峰市</p>
-</div>
-</section><a href="https://ibb.co/tpTvd5jV"><img src="https://i.ibb.co/tpTvd5jV/fa1ad902686b12e5ee369b9c46f16963.jpg" alt="fa1ad902686b12e5ee369b9c46f16963" border="0"></a>
-<footer>
-© 2025 哈布日影视工作室 保留所有权利
-</footer>
+    <!-- 联系方式板块 -->
+    <section id="contact">
+        <h2 class="section-title">联系我们</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-label">微信 / 电话</span>
+                <strong>156-6101-3682</strong>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">电子邮箱</span>
+                <strong>haburihaha@gmail.com</strong>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">工作室地址</span>
+                <strong>内蒙古 赤峰市</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2025 哈布日影视工作室 保留所有权利</p>
+    </footer>
+
 </body>
 </html>
