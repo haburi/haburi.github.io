@@ -6,7 +6,7 @@
     <title>哈布日影视工作室</title>
 
     <!-- ======================
-         基础样式 / 全局设置
+         全局基础样式
          ====================== -->
     <style>
         * {
@@ -75,8 +75,8 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 18px;
+        .logo-text {
+            font-size: 16px;
             font-weight: 600;
             letter-spacing: 2px;
         }
@@ -114,7 +114,7 @@
         }
 
         /* ======================
-           首页
+           首页 Home
            ====================== */
         #home {
             height: 100vh;
@@ -124,9 +124,21 @@
             text-align: center;
         }
 
+        .home-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+
+        /* 首页 Logo */
+        .home-logo img {
+            height: 120px;   /* 可调整 Logo 大小 */
+            width: auto;
+        }
+
         #home h1 {
             font-size: 48px;
-            margin-bottom: 20px;
         }
 
         #home p {
@@ -196,7 +208,7 @@
         }
 
         /* ======================
-           底部 Footer
+           Footer
            ====================== */
         footer {
             padding: 40px 0;
@@ -207,7 +219,7 @@
         }
 
         /* ======================
-           响应式适配
+           响应式
            ====================== */
         @media (max-width: 768px) {
             nav ul {
@@ -231,6 +243,14 @@
             .menu-icon {
                 display: flex;
             }
+
+            .home-logo img {
+                height: 90px; /* 手机端 Logo 稍微小一点 */
+            }
+
+            #home h1 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
@@ -238,13 +258,12 @@
 <body>
 
 <!-- ======================
-     顶部导航栏
+     顶部导航
      ====================== -->
 <header>
     <div class="nav-container">
-        <div class="logo">哈布日影视</div>
+        <div class="logo-text">哈布日影视</div>
 
-        <!-- 汉堡菜单开关 -->
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">
             <span></span>
@@ -268,7 +287,12 @@
      首页
      ====================== -->
 <section id="home">
-    <div>
+    <div class="home-inner">
+        <!-- 首页正中 Logo -->
+        <div class="home-logo">
+            <img src="logo.png" alt="哈布日影视工作室 Logo">
+        </div>
+
         <h1>哈布日影视工作室</h1>
         <p>用镜头捕捉光影，用影像讲述故事</p>
     </div>
@@ -296,7 +320,6 @@
 <section id="works">
     <h2>作品精选</h2>
     <div class="works-grid">
-        <!-- 可替换作品名称 -->
         <div class="work-item">《XX》- 长片电影</div>
         <div class="work-item">《XX》- 独立电影</div>
         <div class="work-item">《XX》- 品牌广告</div>
@@ -329,17 +352,13 @@
 <section id="contact">
     <h2>联系我们</h2>
     <div class="contact">
-        <!-- 可替换为真实信息 -->
-        <p>📞 电话：XXXXXXXXXXX</p>
-        <p>💬 微信：XXXXXXXX</p>
-        <p>📧 邮箱：example@email.com</p>
-        <p>📍 地址：XXXXXXXXXXXX</p>
+        <p>📞 电话：15661013682</p>
+        <p>💬 微信：244321240</p>
+        <p>📧 邮箱：haburihaha@gmail.com</p>
+        <p>📍 地址：内蒙古赤峰市</p>
     </div>
 </section>
 
-<!-- ======================
-     Footer
-     ====================== -->
 <footer>
     © 2025 哈布日影视工作室 保留所有权利
 </footer>
