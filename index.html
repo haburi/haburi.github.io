@@ -1,245 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>哈布日影视工作室</title>
+<style>
+* {
+边距：0；
+内边距：0；
+box-sizing: border-box;
+}
 
-import React, { useState, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { Bloom, EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
-import ParticleManager from './components/ParticleManager';
-import { Theme } from './types';
-import { THEME_DURATION } from './constants';
+html {
+滚动行为：平滑；
+}
 
-const App: React.FC = () => {
-  const [currentTheme, setCurrentTheme] = useState<Theme>(Theme.UNIVERSE);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+身体 {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+Helvetica、Arial、sans-serif；
+背景色：#ffffff；
+颜色：#333；
+行高：1.8；
+}
 
-  useEffect(() => {
-    const themes = [
-      Theme.UNIVERSE,
-      Theme.HAVAR_LOGO,
-      Theme.CINEMA_CAMERA,
-      Theme.FILM_STRIPS,
-      Theme.LENS_APERTURE
-    ];
-    let index = 0;
+a {
+文本装饰：无；
+颜色：继承；
+}
 
-    const interval = setInterval(() => {
-      index = (index + 1) % themes.length;
-      setCurrentTheme(themes[index]);
-    }, THEME_DURATION);
+部分 {
+内边距：120px 8%；
+}
 
-    return () => clearInterval(interval);
-  }, []);
+h1, h2 {
+字体粗细：600；
+字母间距：1px；
+颜色：#111；
+}
 
-  const navLinks = [
-    { name: '首页', href: '#home' },
-    { name: '关于我', href: '#about' },
-    { name: '作品展示', href: '#works' },
-    { name: '服务范围', href: '#services' },
-    { name: '联系方式', href: '#contact' },
-  ];
+h2 {
+字体大小：32像素；
+margin-bottom: 40px;
+文本对齐方式：居中；
+}
 
-  return (
-    <div className="relative w-full min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
-      
-      {/* 3D Background - Fixed */}
-      <div className="fixed inset-0 z-0">
-        <Canvas
-          camera={{ position: [0, 0, 48], fov: 45 }}
-          dpr={[1, 2]}
-        >
-          <color attach="background" args={['#000000']} />
-          <ParticleManager currentTheme={currentTheme} />
-          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.3} />
-          <EffectComposer>
-            <Bloom luminanceThreshold={0.15} mipmapBlur intensity={1.5} radius={0.5} />
-            <Noise opacity={0.03} />
-            <Vignette eskil={false} offset={0.1} darkness={1.1} />
-          </EffectComposer>
-        </Canvas>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black pointer-events-none" />
-      </div>
+p {
+字体大小：16px；
+颜色：#555；
+}
 
-      {/* Content Layer */}
-      <div className="relative z-10">
-        
-        {/* Header Navigation */}
-        <header className="fixed top-0 left-0 w-full z-50 glass-card">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div className="text-xl font-black tracking-[0.3em] text-white">
-              HAVAR <span className="text-cyan-400">STUDIO</span>
-            </div>
-            
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex gap-10 text-xs font-bold tracking-widest uppercase">
-              {navLinks.map(link => (
-                <a key={link.name} href={link.href} className="hover:text-cyan-400 transition-colors opacity-80 hover:opacity-100">
-                  {link.name}
-                </a>
-              ))}
-            </nav>
+/* ===== 顶部导航 ===== */
+头部{
+位置：固定；
+顶部：0；
+左侧：0；
+宽度：100%；
+背景色：rgba(255,255,255,0.96);
+border-bottom: 1px solid #eee;
+z-index：1000；
+}
 
-            {/* Mobile Toggle */}
-            <button 
-              className="md:hidden flex flex-col gap-1.5"
-              aria-label="Toggle Menu"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <span className={`w-6 h-0.5 bg-white transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-              <span className={`w-6 h-0.5 bg-white transition-all ${isMenuOpen ? 'opacity-0' : ''}`} />
-              <span className={`w-6 h-0.5 bg-white transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-            </button>
-          </div>
-          
-          {/* Mobile Nav Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/10 px-6 py-10 flex flex-col gap-6 text-center">
-              {navLinks.map(link => (
-                <a 
-                  key={link.name} 
-                  href={link.href} 
-                  className="text-lg font-bold tracking-widest"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-          )}
-        </header>
+.nav-container {
+最大宽度：1200像素；
+margin: 0 auto;
+内边距：16px 8%；
+显示方式：flex；
+justify-content: 空格;
+align-items: center;
+}
 
-        {/* Home Section */}
-        <section id="home" className="h-screen flex flex-col items-center justify-center text-center px-6">
-          <div className="mb-10 animate-pulse">
-            <img src="https://i.ibb.co/7dgCTMmj/converted-image.png" alt="HAVAR LOGO" className="h-32 md:h-48 drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]" />
-          </div>
-          <h1 className="text-4xl md:text-7xl font-black tracking-tighter mb-4">
-            哈布日影视工作室
-          </h1>
-          <p className="text-cyan-400/80 text-sm md:text-xl font-bold tracking-[0.4em] uppercase">
-            用镜头捕捉光影，用影像讲述故事
-          </p>
-          <div className="absolute bottom-10 animate-bounce">
-            <div className="w-px h-12 bg-gradient-to-b from-cyan-400 to-transparent mx-auto" />
-          </div>
-        </section>
+.logo-text {
+字体大小：16px；
+字体粗细：600；
+字母间距：2px；
+}
 
-        {/* About Section */}
-        <section id="about" className="py-32 px-6 max-w-5xl mx-auto">
-          <div className="glass-card p-10 md:p-20 rounded-3xl text-center">
-            <h2 className="text-3xl md:text-5xl font-black mb-12 tracking-tight">关于主理人</h2>
-            <p className="text-lg md:text-2xl leading-relaxed text-gray-300 font-medium">
-              深耕电影摄影领域十余载，我曾以电影摄影师的身份，穿梭于大银幕长片、小众独立电影与多元微电影的片场。
-              从光影构图到叙事镜头，从现场调度到细节捕捉，上千个拍摄日夜的打磨，让我对“用镜头讲故事”有着刻入骨髓的专业执念。
-              如今，我创立哈布日影视工作室，将院线级的拍摄标准与创作经验，融入更广阔的影像领域。
-            </p>
-          </div>
-        </section>
+船
+列表样式：无；
+显示方式：flex；
+间隙：32像素；
+字体大小：14px；
+颜色：#444；
+}
 
-        {/* Works Section */}
-        <section id="works" className="py-32 px-6 max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black text-center mb-20 tracking-tight">作品精选</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-zinc-900 border border-white/5">
-              <img src="https://i.ibb.co/spcr7dMy/85ca59e71ce9a228c1300338d9399444.jpg" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-6 left-6">
-                <p className="text-xs text-cyan-400 font-bold tracking-widest mb-1">长片电影</p>
-                <h3 className="text-xl font-bold italic">《阿苏的夏天》</h3>
-              </div>
-            </div>
-            
-            <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-zinc-900 border border-white/5">
-              <img src="https://i.ibb.co/NdtS3Zb3/IMG-8368.jpg" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-6 left-6">
-                <p className="text-xs text-cyan-400 font-bold tracking-widest mb-1">独立电影</p>
-                <h3 className="text-xl font-bold italic">《心灵博物馆》</h3>
-              </div>
-            </div>
+导航 a:hover {
+颜色：#000；
+}
 
-            <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-zinc-900 border border-white/5">
-              <img src="https://i.ibb.co/0VhzSvdm/IMG-8369.jpg" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-6 left-6">
-                <p className="text-xs text-cyan-400 font-bold tracking-widest mb-1">微电影</p>
-                <h3 className="text-xl font-bold italic">《兔子尾巴经过草原》</h3>
-              </div>
-            </div>
+/* ===== 汉堡菜单（纯 CSS） ===== */
+#菜单切换 {
+显示：无；
+}
 
-            <div className="group relative overflow-hidden rounded-2xl aspect-[16/9] md:col-span-2 lg:col-span-3 bg-zinc-900 border border-white/5">
-               <img src="https://i.ibb.co/tpTvd5jV/fa1ad902686b12e5ee369b9c46f16963.jpg" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
-               <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-all">
-                  <h3 className="text-4xl md:text-6xl font-black tracking-widest uppercase italic opacity-20 group-hover:opacity-100 transition-all">HOLLYWOOD QUALITY</h3>
-               </div>
-            </div>
-          </div>
-        </section>
+.menu-icon {
+显示：无；
+弯曲方向：柱；
+间隙：6像素；
+光标：指针；
+}
 
-        {/* Services Section */}
-        <section id="services" className="py-32 px-6">
-          <div className="max-w-4xl mx-auto glass-card p-12 md:p-20 rounded-3xl border-l-4 border-l-cyan-400">
-            <h2 className="text-3xl md:text-5xl font-black mb-12 tracking-tight">服务内容</h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 text-lg font-bold text-gray-200">
-              <li className="flex items-center gap-4"><span className="text-cyan-400 text-2xl">01</span> 长片电影拍摄</li>
-              <li className="flex items-center gap-4"><span className="text-cyan-400 text-2xl">02</span> 短片 / 微电影创作</li>
-              <li className="flex items-center gap-4"><span className="text-cyan-400 text-2xl">03</span> MV 拍摄与制作</li>
-              <li className="flex items-center gap-4"><span className="text-cyan-400 text-2xl">04</span> 婚礼纪实 / 宣传片</li>
-              <li className="flex items-center gap-4"><span className="text-cyan-400 text-2xl">05</span> 品牌广告拍摄</li>
-              <li className="flex items-center gap-4"><span className="text-cyan-400 text-2xl">06</span> 企业宣传片定制</li>
-            </ul>
-          </div>
-        </section>
+.menu-icon span {
+宽度：24像素；
+高度：2像素；
+背景色：#333；
+}
 
-        {/* Contact Section */}
-        <section id="contact" className="py-32 px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-black mb-20 tracking-tight">联系我们</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="text-cyan-400 mb-4 text-xs font-black tracking-widest uppercase">Phone</div>
-              <div className="text-xl font-bold">15661013682</div>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="text-cyan-400 mb-4 text-xs font-black tracking-widest uppercase">WeChat</div>
-              <div className="text-xl font-bold">244321240</div>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="text-cyan-400 mb-4 text-xs font-black tracking-widest uppercase">Email</div>
-              <div className="text-sm font-bold truncate">haburihaha@gmail.com</div>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="text-cyan-400 mb-4 text-xs font-black tracking-widest uppercase">Location</div>
-              <div className="text-xl font-bold">内蒙古 赤峰市</div>
-            </div>
-          </div>
-        </section>
+/* ===== 首页 ===== */
+＃家 {
+高度：100vh；
+显示方式：flex；
+align-items: center;
+justify-content: center;
+文本对齐方式：居中；
+}
 
-        {/* Footer */}
-        <footer className="py-20 border-t border-white/5 text-center text-gray-600 text-xs font-bold tracking-[0.5em] uppercase">
-          © 2025 哈布日影视工作室 | ALL RIGHTS RESERVED
-        </footer>
-      </div>
+.home-inner {
+显示方式：flex；
+弯曲方向：柱；
+align-items: center;
+间隙：32像素；
+}
 
-      {/* Progress Timeline Overlay */}
-      <div className="fixed bottom-0 left-0 w-full h-1 bg-white/5 z-50">
-        <div 
-          className="h-full bg-cyan-400 shadow-[0_0_20px_rgba(34,211,238,1)]"
-          style={{ 
-            width: '100%', 
-            animation: `progress ${THEME_DURATION}ms linear infinite` 
-          }}
-        />
-      </div>
+/* 首页 Logo */
+.home-logo img {
+height: 140px; /* 桌面端大小 */
+宽度：自动；
+}
 
-      <style>{`
-        @keyframes progress {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-        html {
-          scroll-behavior: smooth;
-        }
-      `}</style>
-    </div>
-  );
-};
+#首页 h1 {
+字体大小：48像素；
+}
 
-export default App;
+#首页 p {
+字体大小：18px；
+颜色：#666；
+}
+
+/* ===== 关于我 ===== */
+.about-content {
+最大宽度：800像素；
+margin: 0 auto;
+文本对齐方式：居中；
+}
+
+/* ===== 作品展示 ===== */
+.works-grid {
+显示方式：网格；
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+间隙：24像素；
+}
+
+.work-item {
+背景：#f2f2f2；
+高度：180像素；
+显示方式：flex；
+align-items: center;
+justify-content: center;
+字体大小：14px；
+颜色：#666；
+}
+
+/* ===== 服务范围 ===== */
+.services {
+最大宽度：600像素；
+margin: 0 auto;
+}
+
+.services ul {
+列表样式：无；
+}
+
+.services li {
+margin-bottom: 16px;
+}
+
+/* ===== 联系方式 ===== */
+。接触 {
+最大宽度：600像素；
+margin: 0 auto;
+文本对齐方式：居中；
+}
+
+.联系 p {
+margin-bottom: 12px;
+}
+
+/* ===== 页脚 ===== */
+页脚 {
+padding: 40px 0;
+文本对齐方式：居中；
+字体大小：14px；
+颜色：#888；
+border-top: 1px solid #eee;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+
+船
+位置：绝对定位；
+顶部：60px；
+右：0；
+宽度：100%；
+背景色：#fff；
+弯曲方向：柱；
+align-items: center;
+间隙：24像素；
+padding: 40px 0;
+显示：无；
+border-bottom: 1px solid #eee;
+}
+
+#menu-toggle:checked + label + nav ul {
+显示方式：flex；
+}
+
+.menu-icon {
+显示方式：flex；
+}
+
+.home-logo img {
+height: 100px; /* 手机端缩小 */
+}
+
+#首页 h1 {
+字体大小：36px；
+}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="nav-container">
+<div class="logo-text">哈布日影视</div>
+code
+代码
+<input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">
+        <span></span><span></span><span></span>
+    </label>
+
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#works">作品展示</a></li>
+            <li><a href="#services">服务范围</a></li>
+            <li><a href="#contact">联系方式</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+<section id="home">
+<div class="home-inner">
+<!-- 这里是你的 Logo --><a href="https://ibb.co/7dgCTMmj"><img src="https://i.ibb.co/7dgCTMmj/converted-image.png" alt="转换后的图像" border="0"></a>
+<div class="home-logo">
+code
+代码
+</div>
+
+    <h1>哈布日影视工作室</h1>
+    <p>用镜头捕捉光影，用影像讲述故事</p>
+</div>
+</section>
+<section id="about">
+<h2>关于主理人</h2>
+<div class="about-content">
+<p>
+深耕电影摄影领域十余载，我曾以电影摄影师的身份，穿梭于大银幕长片、
+小众独立电影与多元微电影的片场。
+从光影构图到叙事镜头，从现场调度到细节捕捉，
+上千个拍摄日夜的打磨，让我对“用镜头讲故事”
+有着刻入骨髓的专业执念。
+如今，我创立哈布日影视工作室，
+将院线级的拍摄标准与创作经验，
+融入更广阔的影像领域。
+</p>
+</div>
+</section>
+<section id="works">
+<h2>作品精选</h2>
+<div class="works-grid">
+<div class="work-item">《阿苏的夏天》- 长片</div><a href="https://ibb.co/spcr7dMy"><img src="https://i.ibb.co/spcr7dMy/85ca59e71ce9a228c1300338d9399444.jpg" alt="85ca59e71ce9a228c1300338d9399444" border="0"></a>
+<div class="work-item">独立电影《心灵博物馆》</div> <a href="https://ibb.co/NdtS3Zb3"><img src="https://i.ibb.co/NdtS3Zb3/IMG-8368.jpg" alt="IMG-8368" border="0"></a>
+code
+代码
+</section>
+<section id="services">
+<h2>服务内容</h2>
+<div class="services">
+<ul>
+<li>✅ 长片电影拍摄</li>
+<li>✅ 短片 / 微电影创作</li>
+<li>✅ MV 拍摄与制作</li>
+<li>✅ 婚礼纪实 / 婚礼宣传片</li>
+<li>✅ 品牌广告拍摄</li>
+<li>✅ 企业宣传片定制</li>
+</ul>
+</div>
+</section>
+<section id="contact">
+<h2>联系我们</h2>
+<div class="contact">
+<p>📞 电话：15661013682</p>
+<p>💬 微信：244321240</p>
+<p>📧 邮箱：haburihaha@gmail.com</p>
+<p>📍 地址：内蒙古 赤峰市</p>
+</div>
+</section><a href="https://ibb.co/tpTvd5jV"><img src="https://i.ibb.co/tpTvd5jV/fa1ad902686b12e5ee369b9c46f16963.jpg" alt="fa1ad902686b12e5ee369b9c46f16963" border="0"></a>
+<footer>
+© 2025 哈布日影视工作室 保留所有权利
+</footer>
+</body>
+</html>
