@@ -80,6 +80,7 @@ const App: React.FC = () => {
             {/* Mobile Toggle */}
             <button 
               className="md:hidden flex flex-col gap-1.5"
+              aria-label="Toggle Menu"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <span className={`w-6 h-0.5 bg-white transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
