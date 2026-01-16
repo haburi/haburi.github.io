@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>哈布日影视工作室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- 样式文件 -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- ================= 顶部导航栏 ================= -->
+<!-- ================= 顶部导航 ================= -->
 <header id="header">
-  <div class="nav-container">
-    <div class="logo">哈布日影视</div>
+  <div class="nav-inner">
+    <div class="nav-logo">哈布日影视</div>
 
     <nav id="nav">
       <a href="#home">首页</a>
@@ -24,7 +24,7 @@
       <a href="#contact">联系方式</a>
     </nav>
 
-    <!-- 汉堡按钮（移动端） -->
+    <!-- 汉堡菜单 -->
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
@@ -32,13 +32,13 @@
 </header>
 
 <!-- ================= 首页 ================= -->
-<section id="home" class="section-hero">
-  <!-- 图片替换位置：首页背景图 -->
+<section id="home" class="hero">
+  <!-- 图片替换位置：首页背景 -->
   <div class="hero-bg" style="background-image:url('images/hero-bg.jpg')"></div>
 
   <div class="hero-content">
     <!-- 图片替换位置：头像 -->
-    <img src="images/avatar.jpg" alt="头像" class="hero-avatar" loading="lazy"/>
+    <img src="images/avatar.jpg" class="hero-avatar" loading="lazy" alt="头像">
 
     <h1>哈布日影视工作室</h1>
     <p>十余年电影摄影师 ｜ 用镜头讲述光影故事</p>
@@ -51,51 +51,43 @@
 <section id="about" class="section">
   <div class="container about">
     <!-- 图片替换位置 -->
-    <img src="images/about.jpg" class="about-img" alt="关于我" loading="lazy"/>
+    <img src="images/about.jpg" class="about-img" loading="lazy" alt="关于我">
 
     <div class="about-text">
       <h2>关于我</h2>
       <p>
-        十余年专业电影摄影经验，长期服务于院线电影、独立电影与商业影像创作。
-        我始终坚持电影级影像标准，用克制而精准的镜头语言，
-        为每一个故事赋予真实而持久的力量。
+        十余年专业电影摄影经验，长期参与院线电影与独立电影制作。
+        我始终坚持电影级影像标准，用克制、真实、具有时间感的画面，
+        为每一个故事服务。
       </p>
 
-      <!-- 时间轴 -->
       <ul class="timeline">
-        <li>
-          <span>2010 – 2015</span>
-          <em>院线电影摄影助理</em>
-        </li>
-        <li>
-          <span>2016 – 至今</span>
-          <em>独立电影摄影师</em>
-        </li>
+        <li><span>2010–2015</span>院线电影助理</li>
+        <li><span>2016–至今</span>独立摄影师</li>
       </ul>
     </div>
   </div>
 </section>
 
 <!-- ================= 作品展示 ================= -->
-<section id="works" class="section section-dark">
+<section id="works" class="section dark">
   <div class="container">
     <h2 class="center">作品展示</h2>
 
     <div class="works-grid">
-      <!-- 单个作品 -->
-      <div class="work-card" data-img="images/work-1.jpg">
-        <img src="images/work-1.jpg" loading="lazy"/>
+      <div class="work-card" data-img="images/work1.jpg">
+        <img src="images/work1.jpg" loading="lazy">
         <div class="work-info">《无名之光》｜剧情短片</div>
       </div>
 
-      <div class="work-card" data-img="images/work-2.jpg">
-        <img src="images/work-2.jpg" loading="lazy"/>
+      <div class="work-card" data-img="images/work2.jpg">
+        <img src="images/work2.jpg" loading="lazy">
         <div class="work-info">《边界》｜独立电影</div>
       </div>
 
-      <div class="work-card" data-img="images/work-3.jpg">
-        <img src="images/work-3.jpg" loading="lazy"/>
-        <div class="work-info">品牌形象片｜商业广告</div>
+      <div class="work-card" data-img="images/work3.jpg">
+        <img src="images/work3.jpg" loading="lazy">
+        <div class="work-info">品牌宣传片｜商业影像</div>
       </div>
     </div>
   </div>
@@ -103,7 +95,7 @@
 
 <!-- 全屏查看器 -->
 <div id="viewer">
-  <img id="viewer-img"/>
+  <img id="viewer-img">
 </div>
 
 <!-- ================= 服务范围 ================= -->
@@ -112,13 +104,12 @@
     <h2 class="center">服务范围</h2>
 
     <div class="services">
-      <div class="service-block">
+      <div>
         <h3>影视级</h3>
         <p>🎬 电影剧情片</p>
-        <p>📽️ 短片 / 叙事影像</p>
+        <p>📽️ 短片创作</p>
       </div>
-
-      <div class="service-block">
+      <div>
         <h3>商业级</h3>
         <p>📹 品牌宣传片</p>
         <p>📸 电影感人像</p>
@@ -128,7 +119,7 @@
 </section>
 
 <!-- ================= 联系方式 ================= -->
-<section id="contact" class="section section-light">
+<section id="contact" class="section light">
   <div class="container contact">
     <div>
       <h2>联系我</h2>
@@ -138,8 +129,7 @@
       <p>邮箱：hello@haburi.com</p>
     </div>
 
-    <!-- 地图占位 -->
-    <div class="map-placeholder">地图占位</div>
+    <div class="map">地图占位</div>
   </div>
 </section>
 
