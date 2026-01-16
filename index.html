@@ -1,19 +1,18 @@
+
 import React, { useState } from 'react';
-// 确保你有这个组件，或者暂时注释掉下面这行
-import AIAssistant from './components/AIAssistant'; 
+import AIAssistant from './components/AIAssistant';
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-white text-[#1d1d1f] transition-colors duration-500 font-sans">
+    <div className="relative min-h-screen bg-white text-[#1d1d1f] transition-colors duration-500 selection:bg-black selection:text-white font-sans">
       
       {/* 导航栏 */}
       <nav className="fixed top-0 w-full h-12 bg-white/80 backdrop-blur-md z-[100] border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6 h-full flex items-center justify-between">
           <a href="#home" className="text-[17px] font-semibold tracking-tight">哈布日影视</a>
           
-          {/* 桌面端菜单 */}
           <div className="hidden md:flex gap-8">
             {['首页', '关于我', '作品展示', '服务范围', '联系方式'].map((item, idx) => (
               <a key={idx} href={`#${['home', 'about', 'portfolio', 'services', 'contact'][idx]}`} className="text-[12px] opacity-80 hover:opacity-100 transition-opacity">
@@ -22,7 +21,6 @@ const App: React.FC = () => {
             ))}
           </div>
 
-          {/* 移动端菜单按钮 */}
           <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor">
               <path d="M2 5h14M2 9h14M2 13h14" strokeWidth="1.2" strokeLinecap="round"/>
@@ -71,27 +69,36 @@ const App: React.FC = () => {
 
         {/* 哈布日工作室通行证 (Card) */}
         <div className="relative z-10 flex flex-col items-center animate-in fade-in zoom-in duration-1000">
-          <div className="bg-white border border-gray-100 rounded-[50px] p-12 hover:-translate-y-2 shadow-[0_40px_120px_rgba(0,0,0,0.06)] flex flex-col items-center group transition-all duration-700">
+          <div className="bg-white border border-gray-100 rounded-[50px] p-12 md:p-16 shadow-[0_40px_120px_rgba(0,0,0,0.06)] flex flex-col items-center group transition-all duration-700 hover:-translate-y-2">
             
-            {/* HAVAR LOGO */}
+            {/* HAVAR LOGO - 根据最新图片重构 */}
             <div className="relative flex flex-col items-center mb-6">
               <svg width="240" height="240" viewBox="0 0 400 400" className="text-[#1a1a1a] transition-transform duration-500 group-hover:scale-[1.02]">
+                {/* 顶部天线/支架 */}
                 <path d="M145 80 V105 H245 V80 M145 92 H245 M195 105 V130" stroke="currentColor" strokeWidth="10" fill="none" strokeLinecap="square" />
                 <circle cx="195" cy="145" r="14" fill="white" stroke="currentColor" strokeWidth="10" />
+                
+                {/* 相机主体 */}
                 <rect x="95" y="145" width="200" height="115" rx="25" fill="none" stroke="currentColor" strokeWidth="12" />
+                
+                {/* 录制指示灯 */}
                 <circle cx="265" cy="175" r="8" fill="#e11d48" className="animate-pulse" />
+
+                {/* 镜头组合 */}
                 <circle cx="195" cy="202" r="48" fill="white" stroke="currentColor" strokeWidth="12" />
                 <circle cx="195" cy="202" r="30" fill="#262626" />
+
+                {/* 底部支撑 */}
                 <path d="M195 245 V300" stroke="currentColor" strokeWidth="12" fill="none" />
                 <path d="M90 300 Q195 240 300 300" stroke="currentColor" strokeWidth="12" fill="none" strokeLinecap="round" />
-                
-                {/* HAVAR text placeholder */}
+
+                {/* HAVAR 标准字 */}
                 <g transform="translate(65, 330)" fill="currentColor">
-                   <path d="M0 0 H20 V12 H30 V0 H50 V35 H30 V22 H20 V35 H0 V0Z" />
-                   <path d="M60 0 H100 V35 H85 V22 H75 V35 H60 V0 Z M85 12 V8 H75 V12 H85 Z" />
-                   <path d="M110 0 H130 L135 15 L140 0 H160 L145 35 H125 L110 0Z" />
-                   <path d="M170 0 H210 V35 H195 V22 H185 V35 H170 V0 Z M195 12 V8 H185 V12 H195 Z" />
-                   <path d="M220 0 H260 V20 Q260 25 245 25 L260 35 H240 L230 25 V35 H220 V0 Z M245 15 V8 H230 V15 H245 Z" />
+                  <path d="M0 0 H20 V12 H30 V0 H50 V35 H30 V22 H20 V35 H0 V0Z" />
+                  <path d="M60 0 H100 V35 H85 V22 H75 V35 H60 V0 Z M85 12 V8 H75 V12 H85 Z" />
+                  <path d="M110 0 H130 L135 15 L140 0 H160 L145 35 H125 L110 0Z" />
+                  <path d="M170 0 H210 V35 H195 V22 H185 V35 H170 V0 Z M195 12 V8 H185 V12 H195 Z" />
+                  <path d="M220 0 H260 V20 Q260 25 245 25 L260 35 H240 L230 25 V35 H220 V0 Z M245 15 V8 H230 V15 H245 Z" />
                 </g>
               </svg>
             </div>
@@ -221,13 +228,12 @@ const App: React.FC = () => {
       {/* Footer */}
       <footer className="py-20 border-t border-gray-100 flex flex-col items-center max-w-5xl mx-auto px-6">
         <div className="flex flex-col items-center gap-2 mb-8">
-           <span className="text-2xl font-black tracking-tighter">HAVAR</span>
+           <span className="text-2xl font-black tracking-tighter" style={{ fontFamily: 'Impact, sans-serif' }}>HAVAR</span>
            <span className="text-[10px] font-bold text-gray-900 tracking-[0.4em] uppercase">Haburi Film Studio</span>
         </div>
         <p className="text-[10px] text-gray-400 tracking-widest">© 2025 HABURI FILM. ALL RIGHTS RESERVED.</p>
       </footer>
 
-      {/* 确保你安装了 AIAssistant 组件 */}
       <AIAssistant />
 
       <style>{`
