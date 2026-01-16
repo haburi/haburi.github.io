@@ -1,274 +1,245 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>哈布日影视工作室</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>哈布日影视工作室</title>
 
-    <!-- ======================
-         全局基础样式
-         ====================== -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            color: #333333;
-            line-height: 1.8;
-        }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Helvetica, Arial, sans-serif;
+    background: #ffffff;
+    color: #333;
+    line-height: 1.8;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-        section {
-            padding: 120px 8%;
-        }
+section {
+    padding: 120px 8%;
+}
 
-        h1, h2 {
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: #1a1a1a;
-        }
+h1, h2 {
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #111;
+}
 
-        h2 {
-            font-size: 32px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
+h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+}
 
-        p {
-            font-size: 16px;
-            color: #555;
-        }
+p {
+    font-size: 16px;
+    color: #555;
+}
 
-        /* ======================
-           顶部导航栏
-           ====================== */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            border-bottom: 1px solid #eee;
-            z-index: 1000;
-        }
+/* ===== 顶部导航 ===== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid #eee;
+    z-index: 1000;
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 16px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .logo-text {
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
+.logo-text {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 32px;
-            font-size: 14px;
-            color: #444;
-        }
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    color: #444;
+}
 
-        nav ul li a:hover {
-            color: #000;
-        }
+nav a:hover {
+    color: #000;
+}
 
-        /* ======================
-           汉堡菜单（纯 CSS）
-           ====================== */
-        #menu-toggle {
-            display: none;
-        }
+/* ===== 汉堡菜单（纯 CSS） ===== */
+#menu-toggle {
+    display: none;
+}
 
-        .menu-icon {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-        }
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
 
-        .menu-icon span {
-            width: 24px;
-            height: 2px;
-            background: #333;
-        }
+.menu-icon span {
+    width: 24px;
+    height: 2px;
+    background: #333;
+}
 
-        /* ======================
-           首页 Home
-           ====================== */
-        #home {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+/* ===== 首页 ===== */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
-        .home-inner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 32px;
-        }
+.home-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
 
-        /* 首页 Logo */
-        .home-logo img {
-            height: 120px;   /* 可调整 Logo 大小 */
-            width: auto;
-        }
+/* 首页 Logo */
+.home-logo img {
+    height: 140px;   /* 桌面端大小 */
+    width: auto;
+}
 
-        #home h1 {
-            font-size: 48px;
-        }
+#home h1 {
+    font-size: 48px;
+}
 
-        #home p {
-            font-size: 18px;
-            color: #666;
-        }
+#home p {
+    font-size: 18px;
+    color: #666;
+}
 
-        /* ======================
-           关于我
-           ====================== */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
+/* ===== 关于我 ===== */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-        /* ======================
-           作品展示
-           ====================== */
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
-        }
+/* ===== 作品展示 ===== */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
 
-        .work-item {
-            background: #f2f2f2;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-            border-radius: 2px;
-        }
+.work-item {
+    background: #f2f2f2;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #666;
+}
 
-        /* ======================
-           服务范围
-           ====================== */
-        .services {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+/* ===== 服务范围 ===== */
+.services {
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-        .services ul {
-            list-style: none;
-            font-size: 16px;
-            color: #444;
-        }
+.services ul {
+    list-style: none;
+}
 
-        .services li {
-            margin-bottom: 16px;
-        }
+.services li {
+    margin-bottom: 16px;
+}
 
-        /* ======================
-           联系方式
-           ====================== */
-        .contact {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
+/* ===== 联系方式 ===== */
+.contact {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-        .contact p {
-            margin-bottom: 12px;
-        }
+.contact p {
+    margin-bottom: 12px;
+}
 
-        /* ======================
-           Footer
-           ====================== */
-        footer {
-            padding: 40px 0;
-            text-align: center;
-            font-size: 14px;
-            color: #888;
-            border-top: 1px solid #eee;
-        }
+/* ===== Footer ===== */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    border-top: 1px solid #eee;
+}
 
-        /* ======================
-           响应式
-           ====================== */
-        @media (max-width: 768px) {
-            nav ul {
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: #fff;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                gap: 24px;
-                padding: 40px 0;
-                display: none;
-                border-bottom: 1px solid #eee;
-            }
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
 
-            #menu-toggle:checked + label + nav ul {
-                display: flex;
-            }
+    nav ul {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 40px 0;
+        display: none;
+        border-bottom: 1px solid #eee;
+    }
 
-            .menu-icon {
-                display: flex;
-            }
+    #menu-toggle:checked + label + nav ul {
+        display: flex;
+    }
 
-            .home-logo img {
-                height: 90px; /* 手机端 Logo 稍微小一点 */
-            }
+    .menu-icon {
+        display: flex;
+    }
 
-            #home h1 {
-                font-size: 36px;
-            }
-        }
-    </style>
+    .home-logo img {
+        height: 100px; /* 手机端缩小 */
+    }
+
+    #home h1 {
+        font-size: 36px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<!-- ======================
-     顶部导航
-     ====================== -->
 <header>
     <div class="nav-container">
         <div class="logo-text">哈布日影视</div>
 
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </label>
 
         <nav>
@@ -283,12 +254,9 @@
     </div>
 </header>
 
-<!-- ======================
-     首页
-     ====================== -->
 <section id="home">
     <div class="home-inner">
-        <!-- 首页正中 Logo -->
+        <!-- 这里是你的 Logo -->
         <div class="home-logo">
             <img src="logo.png" alt="哈布日影视工作室 Logo">
         </div>
@@ -298,40 +266,34 @@
     </div>
 </section>
 
-<!-- ======================
-     关于我
-     ====================== -->
 <section id="about">
     <h2>关于主理人</h2>
     <div class="about-content">
         <p>
-            深耕电影摄影领域十余载，我曾以电影摄影师的身份，穿梭于大银幕长片、小众独立电影与多元微电影的片场。
-            从光影构图到叙事镜头，从现场调度到细节捕捉，上千个拍摄日夜的打磨，
-            让我对“用镜头讲故事”有着刻入骨髓的专业执念。
-            如今，我创立哈布日影视工作室，将院线级的拍摄标准与创作经验，
+            深耕电影摄影领域十余载，我曾以电影摄影师的身份，穿梭于大银幕长片、
+            小众独立电影与多元微电影的片场。
+            从光影构图到叙事镜头，从现场调度到细节捕捉，
+            上千个拍摄日夜的打磨，让我对“用镜头讲故事”
+            有着刻入骨髓的专业执念。
+            如今，我创立哈布日影视工作室，
+            将院线级的拍摄标准与创作经验，
             融入更广阔的影像领域。
         </p>
     </div>
 </section>
 
-<!-- ======================
-     作品展示
-     ====================== -->
 <section id="works">
     <h2>作品精选</h2>
     <div class="works-grid">
-        <div class="work-item">《XX》- 长片电影</div>
-        <div class="work-item">《XX》- 独立电影</div>
-        <div class="work-item">《XX》- 品牌广告</div>
-        <div class="work-item">《XX》- 企业宣传片</div>
-        <div class="work-item">《XX》- MV 作品</div>
-        <div class="work-item">《XX》- 微电影</div>
+        <div class="work-item">《阿苏的夏天》- 长片电影</div>
+        <div class="work-item">《心灵博物馆》- 独立电影</div>
+      
+       
+        <div class="work-item">《狼图腾》- 好莱坞电影</div>
+        <div class="work-item">《兔子尾巴经过草原》- 微电影</div>
     </div>
 </section>
 
-<!-- ======================
-     服务范围
-     ====================== -->
 <section id="services">
     <h2>服务内容</h2>
     <div class="services">
@@ -346,16 +308,13 @@
     </div>
 </section>
 
-<!-- ======================
-     联系方式
-     ====================== -->
 <section id="contact">
     <h2>联系我们</h2>
     <div class="contact">
         <p>📞 电话：15661013682</p>
         <p>💬 微信：244321240</p>
         <p>📧 邮箱：haburihaha@gmail.com</p>
-        <p>📍 地址：内蒙古赤峰市</p>
+        <p>📍 地址：内蒙古 赤峰市</p>
     </div>
 </section>
 
