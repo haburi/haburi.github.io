@@ -1,0 +1,315 @@
+/* ===============================
+   哈布日影视工作室 - 全站样式
+   主色：#FFFFFF
+   辅助色：#1A1A1A #F5F5F7 #E5E5E5
+   字体：思源黑体（系统回退）
+================================ */
+
+/* ---------- 全局重置 ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Source Han Sans SC", "Noto Sans SC", -apple-system,
+    BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  color: #1A1A1A;
+  background-color: #FFFFFF;
+  line-height: 1.7;
+}
+
+/* ---------- 通用 ---------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 24px;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+section {
+  position: relative;
+}
+
+/* ===============================
+   顶部导航
+================================ */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0.5px 6px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1A1A1A;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+/* 汉堡菜单 */
+.menu-toggle {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===============================
+   首页 Hero
+================================ */
+#home {
+  height: 100vh;
+  background: url("../images/hero-bg.jpg") center / cover no-repeat;
+  position: relative;
+  color: #fff;
+}
+
+#home::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+/* 向下箭头 */
+.scroll-down {
+  position: absolute;
+  bottom: 40px;
+  font-size: 24px;
+  opacity: 0.7;
+}
+
+/* ===============================
+   关于我
+================================ */
+#about .about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.about-title {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.about-text {
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+/* 时间轴 */
+.timeline {
+  border-left: 2px solid #E5E5E5;
+  padding-left: 24px;
+}
+
+.timeline-item {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===============================
+   作品展示
+================================ */
+#works {
+  background: #1A1A1A;
+  color: #fff;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.work-card {
+  background: #F5F5F7;
+  color: #1A1A1A;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.work-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.work-card:hover img {
+  transform: scale(1.05);
+}
+
+.work-info {
+  padding: 16px;
+  font-size: 14px;
+}
+
+/* ===============================
+   服务范围
+================================ */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+.service-box h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.service-box p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   联系方式
+================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.contact-title {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.map-placeholder {
+  background: #F5F5F7;
+  border-radius: 8px;
+  height: 300px;
+}
+
+/* ===============================
+   页脚
+================================ */
+footer {
+  text-align: center;
+  padding: 32px 16px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* ===============================
+   响应式
+================================ */
+@media (max-width: 1199px) {
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    background: #FFFFFF;
+    flex-direction: column;
+    width: 200px;
+    padding: 16px;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  #about .about-wrapper,
+  .contact-grid,
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+}
